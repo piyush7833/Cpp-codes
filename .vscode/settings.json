@@ -1,0 +1,19 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "utility": "cpp",
+        "xstring": "cpp",
+        "string": "cpp",
+        "7_non-repeated_kaksha": "cpp",
+        "queue": "cpp",
+        "set": "cpp",
+        "vector": "cpp",
+        "deque": "cpp",
+        "ios": "cpp",
+        "xiosbase": "cpp",
+        "array": "cpp",
+        "xutility": "cpp"
+    }
+}
