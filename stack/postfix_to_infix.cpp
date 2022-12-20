@@ -31,7 +31,6 @@ string getInfix(string exp)
 				op1 + ")");
 		}
 	}
-
 	return s.top();
 }
 

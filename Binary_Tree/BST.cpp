@@ -15,22 +15,18 @@ class node{
 node *buildTree(node *&root, int val)
 {
     root = new node(val);
-    if (val == -1 || val==root->data)
-    {
-        return NULL;
-    }
+    // if (val == -1 || val==root->data)
+    // {
+    //     return NULL;
+    // }
     if(val>root->data){
-         cout<<"Data is inserted in right of "<<root->data<<endl;
+        cout<<"Data is inserted in right of "<<root->data<<endl;
         root->right=buildTree(root->right,val);
     }
     else{
        cout<<"Data is inserted in left of "<<root->data<<endl; 
        root->left = buildTree(root->left,val); 
     }
-    // cout << "Enter the data for inserting in left of " << root->data << endl;
-    // root->left = buildTree(root->left);
-    // cout << "Enter the data for inserting in right of " << root->data << endl;
-    // root->right = buildTree(root->right);
     return root;
 }
 void preorder(node* root){

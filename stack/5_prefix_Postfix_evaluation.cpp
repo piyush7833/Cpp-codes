@@ -108,7 +108,7 @@ int postfixEvaluation(string s){
 int main(){
 string s="-+7*45+20";
 cout<<prefixEvaluation(s)<<endl;
-string s2="325*+";
+string s2="4325*+-";
 cout<<postfixEvaluation(s2)<<endl;
 return 0;
 }

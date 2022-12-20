@@ -77,7 +77,6 @@ string prefix(string s){
         pre=st.Top()+pre;
         st.pop();
      }
-    //  reverse(pre.begin(),pre.end());
      return pre;
 }
 int main(){

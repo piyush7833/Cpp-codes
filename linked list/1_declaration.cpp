@@ -13,6 +13,7 @@ class node{
         next = NULL; //value of next address iis NULL
     }
 };
+
 //insertion at tail of linked list
 void InsertAtTail(node* &head, int val){//we are modifying head so we take it by reference
     node* n= new node(val);  //dynamic allocation of new node value //now its next address is stored as NULL
@@ -26,13 +27,15 @@ void InsertAtTail(node* &head, int val){//we are modifying head so we take it by
     }
     temp->next = n;  //storing value of new node 
 }
+
+
 //insertion at head of linked list
 void insertAtHead(node* &head, int val){
     node* n = new node(val);
     n->next=head;  //changing the head address
     head =n;
-
 }
+
 void insertAtMid(node* &head, int val, int pos){
     node* temp=head;
     int count=1;
@@ -59,6 +62,34 @@ int searching(node* head, int key){
         pos++;
     }
     return false;
+}
+void deletion(node* &head ,int key){
+    node* temp=head;
+    if(head==NULL){
+        cout<<"Nothing to delete ";
+        return;
+    }
+    else if (head->next==NULL){
+        delete head;
+    }
+    while(temp->next->data!=key){
+        temp=temp->next;
+    }
+    node* toDel=temp->next;
+    temp->next=temp->next->next;
+    delete toDel;
+}
+node* reverse(node* &head){
+    node* previous =NULL;
+    node* current = head;
+    node* Next ;
+    while(current!=NULL){
+        Next=current->next;
+        current->next=previous;
+        previous=current;
+        current=Next;
+    }
+    return previous;
 }
 void display(node* head){ //we are not modifying head so we take it by value
     node* temp = head;

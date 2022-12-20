@@ -1,29 +1,94 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
+struct node
+{
+    int data;
+    struct node* next;
+};
+struct node *f = NULL;
+struct node *r = NULL;
+void enqueue(int d)
+{
+    struct node* n;
+    n = (struct node*)malloc(sizeof(struct node));
+    n->data = d;
+    n->next = NULL;
+    if((r==NULL)&&(f==NULL))
+    {
+        f = r = n;
+        r->next = f;
+    }
+    else
+    {
+        r->next = n;
+        r = n;
+        n->next = f;
+    }
+} 
+void dequeue()
+{
+    struct node* t;
+    t = f;
+    if((f==NULL)&&(r==NULL))
+        cout << "\nQueue is Empty";
+    else if(f == r){
+        f = r = NULL;
+        free(t);
+    }
+    else{
+        f = f->next;
+        r->next = f;
+        free(t);
+    }
+    
+    
+}
+void print(){
+    struct node* t;
+    t = f;
+    if((f==NULL)&&(r==NULL))
+        cout << "\nQueue is Empty";
+    else{
+        cout << "Queue is : ";
+        do{
+            cout << t->data << "  ";
+            t = t->next;
+        }while(t != f);
+    }
+}
+int main()
+{
+    int opt,n,i,data;
+    cout << "Enter Your Choice:-";
+    do{
+        cout << "\n1 for Insert the Data in Queue\n2 for show the Data in Queue \n3 for Delete the data from the Queue\n0 for Exit" << endl;
+        cout << "Enter choice : ";
+        cin >> opt;
+        switch(opt){
+            case 1:
+                cout << "Enter the number of data : ";
+                scanf("%d",&n);
+                cout << "\nEnter your data : ";
+                i=0;
+                while(i<n){
+                    cin >> data;
+                    enqueue(data);
+                    i++;
+                }
+                break;
+            case 2:
+                print();
+                break;
+            case 3:
+                 dequeue();
+                break;
+            case 0:
+                break;
+            default:
+                cout << "\nIncorrect Choice";
+            
+        }
+    }while(opt!=0);
+return 0;
+}
 
-int main() {
-	// your code goes here
-	int t,n;
-	int s[n];
-	int d[n];
-	int k=0;
-	cin>>t;
-	while(t--){
-	    cin>>n;
-	for(int i=1; i<=n;i++){
-	    cin>>s[i]>>d[i];
-	    
-	}
-	for(int i=1;i<=n;i++){
-	    	    if(s[i]==d[i]){
-	        k+=1;
-	    }
-	    else{
-	        k=k;
-	    }
-	}
-	cout<<k<<" "<<endl;
-	k=0;
-}
-	return 0;
-}
